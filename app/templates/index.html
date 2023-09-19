@@ -108,15 +108,13 @@
     </div>
     <div class="video-container">
         {% for video in videos %}
-        {% if video['thumbnailURL'] %}
             <div class="video-item">
                 <a href="{{ url_for('play', video_id=loop.index0) }}">
                     <img src="{{ video['thumbnailURL'] }}" alt="{{ video['name'] }}">
                     <h2>{{ video['name'] }}</h2>
                 </a>
             </div>
-        {% endif %}
-    {% endfor %}
+        {% endfor %}
     </div>
 
     <!-- Pagination links -->
