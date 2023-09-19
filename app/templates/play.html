@@ -30,8 +30,8 @@
         .join-premium a:hover {
             background-color: #ff8800; /* Slightly lighter orange on hover */
         }
-        /* CSS for video player */
-        .video-container {
+       /* CSS for video player */
+       .video-container {
             width: 100%;
             position: relative;
         }
@@ -41,20 +41,13 @@
         }
 
         /* CSS for video controls */
-        video::-webkit-media-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px;
-            border-radius: 5px;
-        }
 
         video::-webkit-media-controls-play-button,
         video::-webkit-media-controls-volume-slider,
         video::-webkit-media-controls-mute-button,
         video::-webkit-media-controls-timeline {
-            width: 30px; /* Adjust the size of the control buttons as needed */
-            height: 30px; /* Adjust the size of the control buttons as needed */
+            width: auto; /* Adjust the size of the control buttons as needed */
+            height: auto; /* Adjust the size of the control buttons as needed */
         }
 
         /* Center the play button vertically */
@@ -76,7 +69,7 @@
             Your browser does not support the video tag.
         </video>
     </div>
-
+    
     <!-- Back to Gallery link -->
     <div class="container">
         
