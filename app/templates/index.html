@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Gallery</title>
+    <style>
+        /* Center-align the buttons */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh; /* Center vertically on the screen */
+        }
+
+        /* Styles for the previous button */
+        .pagination-button.prev {
+            background-color: #4CAF50; /* Green color */
+            color: white;
+            padding: 10px 20px; /* Adjust size as needed */
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Styles for the next button */
+        .pagination-button.next {
+            background-color: #f44336; /* Red color */
+            color: white;
+            padding: 10px 20px; /* Adjust size as needed */
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Hover effect for buttons */
+        .pagination-button:hover {
+            opacity: 0.8;
+        }
+    </style>
+    <style>
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .video-item {
+            width: calc(33.33% - 10px);
+            margin-bottom: 10px;
+        }
+
+        .video-item img {
+            width: 100%;
+            max-height: 70%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Gallery</h1>
+
+    <div class="video-container">
+        {% for video in videos %}
+        {% if video['thumbnailURL'] %}
+            <div class="video-item">
+                <a href="{{ url_for('play', video_id=loop.index0) }}">
+                    <img src="{{ video['thumbnailURL'] }}" alt="{{ video['title'] }}">
+                    <h2>{{ video['title'] }}</h2>
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+    <!-- Pagination links -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('index', page=page-1) }}" class="pagination-button prev">Previous</a>
+        {% endif %}
+        {% if (page - 1) * items_per_page + videos|length < videos_len %}
+            <a href="{{ url_for('index', page=page+1) }}" class="pagination-button next">Next</a>
+        {% endif %}
+    </div>
+
+</body>
+</html>
