@@ -11,9 +11,5 @@ pyaes==1.6.1
 pyasn1==0.4.8
 pycryptodomex==3.17
 python-dateutil==2.8.2
-pytz==2022.7.1
-rsa==4.9
-six==1.16.0
-vboxapi==1.0
 websockets==11.0.2
 Werkzeug==2.3.7
